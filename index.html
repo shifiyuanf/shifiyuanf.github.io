@@ -1,0 +1,1524 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>秘密入口导航站点 - 视频门户_官方品牌站 | 精选片源与创作者社区</title>
+<meta name="description" content="秘密入口导航站点官方网站，聚合高清原创视频与精选片源导航，为创作者与企业搭建品质内容生态，提供专业、值得信赖的视频入口服务。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2313192b'/%3E%3Cpath d='M22 18h20v6H28v5h12v6H28v11h-6z' fill='%2357e0c0'/%3E%3Ccircle cx='47' cy='45' r='5' fill='%23ff7a59'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --se-nav-bg:#0d1220;
+    --se-nav-bg2:#131a2b;
+    --se-nav-panel:#182135;
+    --se-nav-line:rgba(255,255,255,.09);
+    --se-nav-ink:#eef3ff;
+    --se-nav-ink-soft:#a7b3cc;
+    --se-nav-mint:#57e0c0;
+    --se-nav-coral:#ff7a59;
+    --se-nav-violet:#8d7bf5;
+    --se-nav-radius:16px;
+    --se-nav-shell:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--se-nav-bg);
+    color:var(--se-nav-ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:700}
+  p{margin:0}
+  ul{margin:0;padding:0;list-style:none}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  .se-nav-root{overflow-x:hidden}
+
+  /* ===== sticky header (announcement + nav) ===== */
+  .se-nav-sticky{
+    position:sticky;top:0;z-index:60;
+  }
+  .se-nav-announce{
+    background:linear-gradient(90deg,#14213a,#1b2b49 45%,#16384a);
+    border-bottom:1px solid var(--se-nav-line);
+  }
+  .se-nav-announce-inner{
+    max-width:var(--se-nav-shell);margin:0 auto;padding:9px 20px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-size:13px;color:#cfe3ff;
+  }
+  .se-nav-announce-tag{
+    background:var(--se-nav-coral);color:#1a0d08;font-weight:700;
+    border-radius:999px;padding:2px 10px;font-size:12px;letter-spacing:.05em;
+    flex:none;
+  }
+  .se-nav-announce-item{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:2px 0;color:#d8e7ff;white-space:nowrap;
+  }
+  .se-nav-announce-item b{color:#fff;font-weight:600}
+  .se-nav-announce-time{color:#7f93b5;font-size:12px;flex:none}
+  .se-nav-header{
+    background:rgba(13,18,32,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--se-nav-line);
+  }
+  .se-nav-header-inner{
+    max-width:var(--se-nav-shell);margin:0 auto;padding:12px 20px;
+    display:flex;align-items:center;gap:22px;
+  }
+  .se-nav-brand{display:flex;align-items:center;gap:11px;flex:none}
+  .se-nav-logo{
+    width:40px;height:40px;border-radius:12px;flex:none;
+    background:linear-gradient(140deg,#57e0c0,#2f9d8f 60%,#1c6f78);
+    display:grid;place-items:center;font-weight:800;color:#08201d;font-size:19px;
+    box-shadow:0 6px 18px rgba(87,224,192,.22);
+  }
+  .se-nav-brand-text{display:flex;flex-direction:column;line-height:1.2}
+  .se-nav-brand-name{font-size:16px;font-weight:700;letter-spacing:.02em}
+  .se-nav-brand-sub{font-size:11px;color:var(--se-nav-ink-soft);letter-spacing:.14em}
+  .se-nav-links{display:flex;gap:4px;flex:1;min-width:0;flex-wrap:wrap}
+  .se-nav-link{
+    padding:7px 11px;border-radius:9px;font-size:14px;color:#d4ddf0;
+    transition:background .18s,color .18s;
+  }
+  .se-nav-link:hover,.se-nav-link:focus-visible{background:rgba(87,224,192,.12);color:var(--se-nav-mint);outline:none}
+  .se-nav-tools{display:flex;align-items:center;gap:9px;flex:none}
+  .se-nav-search{
+    display:flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.06);border:1px solid var(--se-nav-line);
+    border-radius:11px;padding:6px 8px 6px 12px;width:230px;
+  }
+  .se-nav-search input{
+    background:none;border:0;outline:none;color:var(--se-nav-ink);
+    width:100%;font-size:13px;
+  }
+  .se-nav-search input::placeholder{color:#7d8aa4}
+  .se-nav-search-go{
+    background:var(--se-nav-mint);color:#06211c;font-size:12px;font-weight:700;
+    border-radius:8px;padding:4px 10px;flex:none;
+  }
+  .se-nav-search-go:hover{filter:brightness(1.08)}
+  .se-nav-cta{
+    background:linear-gradient(135deg,var(--se-nav-coral),#ff9a6a);
+    color:#2a1008;font-weight:700;font-size:13px;border-radius:11px;
+    padding:9px 16px;white-space:nowrap;
+  }
+  .se-nav-cta:hover{filter:brightness(1.06)}
+  .se-nav-burger{
+    display:none;width:40px;height:40px;border-radius:10px;
+    border:1px solid var(--se-nav-line);align-items:center;justify-content:center;
+  }
+  .se-nav-burger span{display:block;width:17px;height:2px;background:var(--se-nav-ink);position:relative}
+  .se-nav-burger span::before,.se-nav-burger span::after{
+    content:"";position:absolute;left:0;width:17px;height:2px;background:var(--se-nav-ink);
+  }
+  .se-nav-burger span::before{top:-5px}
+  .se-nav-burger span::after{top:5px}
+  .se-nav-mobile{display:none;border-top:1px solid var(--se-nav-line);background:var(--se-nav-bg2)}
+  .se-nav-mobile.open{display:block}
+  .se-nav-mobile ul{padding:10px 20px 16px;display:grid;gap:2px}
+  .se-nav-mobile a{display:block;padding:9px 4px;font-size:14px;color:#d4ddf0;border-bottom:1px solid rgba(255,255,255,.05)}
+  .se-nav-mobile a:hover{color:var(--se-nav-mint)}
+
+  .se-nav-search-flash{
+    position:fixed;left:50%;top:96px;transform:translate(-50%,-14px);
+    background:var(--se-nav-panel);border:1px solid rgba(87,224,192,.4);
+    color:#d9fff6;padding:10px 18px;border-radius:12px;font-size:13px;
+    z-index:80;opacity:0;pointer-events:none;transition:.25s;
+    box-shadow:0 14px 34px rgba(0,0,0,.45);max-width:88vw;
+  }
+  .se-nav-search-flash.show{opacity:1;transform:translate(-50%,0)}
+
+  /* anchors offset for sticky header */
+  section[id],div[id].se-nav-anchor{scroll-margin-top:120px}
+
+  .se-nav-shell{max-width:var(--se-nav-shell);margin:0 auto;padding:0 20px}
+  .se-nav-section{padding:64px 0}
+  .se-nav-section-alt{background:var(--se-nav-bg2);border-top:1px solid var(--se-nav-line);border-bottom:1px solid var(--se-nav-line)}
+  .se-nav-kicker{
+    display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.18em;
+    color:var(--se-nav-mint);text-transform:uppercase;margin-bottom:12px;
+  }
+  .se-nav-kicker::before{content:"";width:22px;height:1px;background:var(--se-nav-mint)}
+  .se-nav-h2{font-size:clamp(24px,3.2vw,34px);letter-spacing:.01em}
+  .se-nav-h2 em{color:var(--se-nav-mint);font-style:normal}
+  .se-nav-lead{color:var(--se-nav-ink-soft);font-size:15px;margin-top:12px;max-width:760px}
+  .se-nav-h3{font-size:18px;margin-bottom:8px}
+
+  /* ===== hero ===== */
+  .se-nav-hero{padding:52px 0 62px;position:relative;overflow:hidden}
+  .se-nav-hero::before{
+    content:"";position:absolute;inset:-20% -10% auto auto;width:620px;height:620px;
+    background:radial-gradient(circle,rgba(87,224,192,.16),transparent 62%);
+    pointer-events:none;
+  }
+  .se-nav-hero::after{
+    content:"";position:absolute;inset:auto auto -30% -12%;width:520px;height:520px;
+    background:radial-gradient(circle,rgba(141,123,245,.14),transparent 64%);
+    pointer-events:none;
+  }
+  .se-nav-hero-grid{
+    display:grid;grid-template-columns:minmax(0,6fr) minmax(0,4fr);
+    gap:44px;align-items:center;position:relative;z-index:1;
+  }
+  .se-nav-hero-badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;
+    border:1px solid rgba(87,224,192,.35);border-radius:999px;padding:5px 13px;
+    color:#bff5e9;background:rgba(87,224,192,.08);margin-bottom:20px;
+  }
+  .se-nav-hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--se-nav-mint);display:block;box-shadow:0 0 0 4px rgba(87,224,192,.14)}
+  .se-nav-h1{
+    font-size:clamp(32px,4.6vw,54px);line-height:1.14;letter-spacing:-.01em;
+  }
+  .se-nav-h1 span{
+    background:linear-gradient(100deg,var(--se-nav-mint),#9ff0dc 55%,var(--se-nav-violet));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .se-nav-hero-desc{
+    margin-top:18px;color:#c3cee2;font-size:15.5px;max-width:600px;
+  }
+  .se-nav-hero-desc strong{color:#fff;font-weight:600}
+  .se-nav-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .se-nav-btn{
+    display:inline-flex;align-items:center;gap:8px;border-radius:12px;
+    padding:11px 20px;font-size:14px;font-weight:600;transition:.18s;
+  }
+  .se-nav-btn-primary{background:var(--se-nav-mint);color:#06211c;box-shadow:0 10px 26px rgba(87,224,192,.22)}
+  .se-nav-btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(87,224,192,.3)}
+  .se-nav-btn-ghost{border:1px solid rgba(255,255,255,.2);color:#e6eeff;background:rgba(255,255,255,.03)}
+  .se-nav-btn-ghost:hover{border-color:var(--se-nav-mint);color:var(--se-nav-mint)}
+  .se-nav-hero-stats{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:34px;
+    border-top:1px solid var(--se-nav-line);padding-top:22px;
+  }
+  .se-nav-stat-num{font-size:24px;font-weight:800;color:var(--se-nav-mint);letter-spacing:-.01em}
+  .se-nav-stat-label{font-size:12.5px;color:var(--se-nav-ink-soft);margin-top:2px}
+  .se-nav-hero-art{position:relative}
+  .se-nav-hero-art-frame{
+    border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 30px 70px rgba(0,0,0,.5);
+  }
+  .se-nav-hero-art-frame img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .se-nav-hero-chip{
+    position:absolute;left:-14px;bottom:22px;background:rgba(19,26,43,.94);
+    border:1px solid rgba(87,224,192,.3);border-radius:14px;padding:10px 14px;
+    font-size:12.5px;color:#cff7ee;box-shadow:0 16px 34px rgba(0,0,0,.45);
+  }
+  .se-nav-hero-chip b{display:block;color:#fff;font-size:14px;margin-bottom:2px}
+
+  /* ===== sections generic ===== */
+  .se-nav-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:30px}
+  .se-nav-head .se-nav-lead{margin-top:10px}
+
+  /* focus card */
+  .se-nav-focus{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:26px}
+  .se-nav-focus-main{
+    border-radius:18px;overflow:hidden;border:1px solid var(--se-nav-line);
+    background:var(--se-nav-panel);
+  }
+  .se-nav-focus-main img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .se-nav-focus-body{padding:20px 22px 22px}
+  .se-nav-tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .se-nav-tag{
+    font-size:11.5px;padding:3px 10px;border-radius:999px;
+    background:rgba(87,224,192,.12);color:#a8f0df;border:1px solid rgba(87,224,192,.22);
+  }
+  .se-nav-tag-coral{background:rgba(255,122,89,.12);color:#ffb9a3;border-color:rgba(255,122,89,.26)}
+  .se-nav-tag-violet{background:rgba(141,123,245,.14);color:#c8bdff;border-color:rgba(141,123,245,.28)}
+  .se-nav-focus-title{font-size:21px;margin-bottom:8px}
+  .se-nav-focus-excerpt{color:var(--se-nav-ink-soft);font-size:14px}
+  .se-nav-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#8695b2;margin-top:14px}
+  .se-nav-side{display:flex;flex-direction:column;gap:12px}
+  .se-nav-side-item{
+    border:1px solid var(--se-nav-line);border-radius:14px;padding:15px 17px;
+    background:rgba(255,255,255,.028);transition:.18s;
+  }
+  .se-nav-side-item:hover{border-color:rgba(87,224,192,.4);background:rgba(87,224,192,.05);transform:translateY(-2px)}
+  .se-nav-side-item h3{font-size:15.5px;margin-bottom:5px}
+  .se-nav-side-item p{font-size:13px;color:var(--se-nav-ink-soft)}
+  .se-nav-side-item .se-nav-meta{margin-top:8px}
+
+  /* video list */
+  .se-nav-video-list{display:flex;flex-direction:column;gap:14px}
+  .se-nav-video-row{
+    display:grid;grid-template-columns:190px minmax(0,1fr) auto;gap:18px;align-items:center;
+    border:1px solid var(--se-nav-line);border-radius:16px;padding:14px;
+    background:rgba(255,255,255,.025);transition:.18s;
+  }
+  .se-nav-video-row:hover{border-color:rgba(87,224,192,.38);background:rgba(87,224,192,.045)}
+  .se-nav-video-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:11px}
+  .se-nav-video-title{font-size:16.5px;margin-bottom:6px}
+  .se-nav-video-desc{font-size:13px;color:var(--se-nav-ink-soft)}
+  .se-nav-video-ops{display:flex;flex-direction:column;gap:8px;min-width:112px}
+  .se-nav-op{
+    border:1px solid var(--se-nav-line);border-radius:9px;padding:6px 10px;font-size:12.5px;
+    color:#cfd9ec;display:flex;align-items:center;justify-content:center;gap:6px;transition:.16s;
+  }
+  .se-nav-op:hover{border-color:var(--se-nav-mint);color:var(--se-nav-mint)}
+  .se-nav-op.active{background:rgba(255,122,89,.14);border-color:rgba(255,122,89,.5);color:#ffb49c}
+  .se-nav-op.saved{background:rgba(141,123,245,.16);border-color:rgba(141,123,245,.5);color:#c8bdff}
+
+  /* topics */
+  .se-nav-topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .se-nav-topic{
+    border:1px solid var(--se-nav-line);border-radius:18px;overflow:hidden;
+    background:var(--se-nav-panel);display:flex;flex-direction:column;transition:.18s;
+  }
+  .se-nav-topic:hover{transform:translateY(-3px);border-color:rgba(87,224,192,.35);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+  .se-nav-topic img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .se-nav-topic-body{padding:16px 17px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .se-nav-topic-body h3{font-size:16.5px}
+  .se-nav-topic-body p{font-size:13px;color:var(--se-nav-ink-soft)}
+  .se-nav-topic-items{margin-top:auto;font-size:12.5px;color:#93a3bf;display:flex;flex-direction:column;gap:4px}
+  .se-nav-topic-items li{display:flex;gap:7px}
+  .se-nav-topic-items li::before{content:"·";color:var(--se-nav-mint)}
+
+  /* authors */
+  .se-nav-authors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .se-nav-author{
+    display:flex;gap:14px;border:1px solid var(--se-nav-line);border-radius:16px;
+    padding:16px;background:rgba(255,255,255,.028);transition:.18s;
+  }
+  .se-nav-author:hover{border-color:rgba(141,123,245,.45);background:rgba(141,123,245,.06)}
+  .se-nav-avatar{
+    width:54px;height:54px;border-radius:50%;flex:none;display:grid;place-items:center;
+    font-weight:800;font-size:19px;color:#0c1220;
+  }
+  .se-nav-author-body{min-width:0}
+  .se-nav-author-name{font-size:15.5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .se-nav-author-field{font-size:12px;color:#8ea0be;margin-top:2px}
+  .se-nav-author-bio{font-size:12.8px;color:var(--se-nav-ink-soft);margin-top:8px}
+  .se-nav-author-nums{display:flex;gap:14px;font-size:12px;color:#8ea0be;margin-top:9px;flex-wrap:wrap}
+  .se-nav-author-nums b{color:#dbe6f9;font-weight:600}
+
+  /* reviews */
+  .se-nav-reviews{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+  .se-nav-review{
+    border:1px solid var(--se-nav-line);border-radius:14px;padding:15px 17px;
+    background:rgba(255,255,255,.025);font-size:13.4px;color:#c5d0e4;
+  }
+  .se-nav-review-quote{border-left:3px solid var(--se-nav-mint);background:rgba(87,224,192,.055)}
+  .se-nav-review-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .se-nav-review-name{font-size:13px;font-weight:600;color:#e8f0ff}
+  .se-nav-stars{color:var(--se-nav-coral);font-size:11.5px;letter-spacing:1px}
+  .se-nav-review time{font-size:11.5px;color:#77869f;margin-left:auto}
+
+  /* timeline / stories */
+  .se-nav-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
+  .se-nav-story-text p{color:#bcc8dd;font-size:14.5px;margin-bottom:13px}
+  .se-nav-story-text p b{color:#fff;font-weight:600}
+  .se-nav-story-list{display:flex;flex-direction:column;gap:14px}
+  .se-nav-story-card{
+    border:1px solid var(--se-nav-line);border-radius:14px;padding:15px 17px;
+    background:rgba(255,255,255,.028);
+  }
+  .se-nav-story-card h3{font-size:15.5px;margin-bottom:6px;color:#eaf2ff}
+  .se-nav-story-card p{font-size:13px;color:var(--se-nav-ink-soft)}
+  .se-nav-note{
+    margin-top:18px;font-size:12.8px;color:#8798b6;border-top:1px dashed rgba(255,255,255,.14);padding-top:12px;
+  }
+
+  /* FAQ */
+  .se-nav-faq{display:flex;flex-direction:column;gap:10px;max-width:860px}
+  .se-nav-faq details{
+    border:1px solid var(--se-nav-line);border-radius:13px;background:rgba(255,255,255,.028);
+    padding:13px 17px;transition:.18s;
+  }
+  .se-nav-faq details[open]{border-color:rgba(87,224,192,.4);background:rgba(87,224,192,.05)}
+  .se-nav-faq summary{
+    cursor:pointer;font-size:14.5px;font-weight:600;color:#e9f1ff;list-style:none;
+    display:flex;justify-content:space-between;gap:12px;align-items:center;
+  }
+  .se-nav-faq summary::-webkit-details-marker{display:none}
+  .se-nav-faq summary::after{content:"+";color:var(--se-nav-mint);font-size:18px;line-height:1}
+  .se-nav-faq details[open] summary::after{content:"−"}
+  .se-nav-faq p{font-size:13.2px;color:var(--se-nav-ink-soft);margin-top:9px}
+
+  /* dynamics */
+  .se-nav-dyn{display:grid;gap:12px}
+  .se-nav-dyn-item{
+    display:grid;grid-template-columns:88px minmax(0,1fr);gap:16px;align-items:start;
+    border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:12px;
+  }
+  .se-nav-dyn-item time{font-size:12.5px;color:#7f90ad;padding-top:2px}
+  .se-nav-dyn-item h3{font-size:15px;margin-bottom:3px;color:#eaf2ff}
+  .se-nav-dyn-item p{font-size:13px;color:var(--se-nav-ink-soft)}
+
+  /* partners */
+  .se-nav-partners{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .se-nav-partner{
+    border:1px solid var(--se-nav-line);border-radius:12px;padding:16px 14px;text-align:center;
+    background:rgba(255,255,255,.026);font-size:13.5px;color:#c5d2e8;
+  }
+  .se-nav-partner b{display:block;font-size:14.5px;color:#eef4ff;margin-bottom:3px}
+  .se-nav-partner span{font-size:11.5px;color:#7f90ad}
+
+  /* inspiration */
+  .se-nav-inspire{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .se-nav-inspire-card{
+    border:1px dashed rgba(87,224,192,.32);border-radius:14px;padding:16px;
+    background:rgba(87,224,192,.045);
+  }
+  .se-nav-inspire-card h3{font-size:15px;margin-bottom:6px;color:#d8fff5}
+  .se-nav-inspire-card p{font-size:12.8px;color:#a9c2cc}
+  .se-nav-inspire-tag{font-size:11px;color:#57e0c0;margin-bottom:6px;display:block;letter-spacing:.1em}
+
+  /* CTA band */
+  .se-nav-band{
+    border-radius:20px;padding:34px 30px;
+    background:linear-gradient(120deg,rgba(87,224,192,.14),rgba(141,123,245,.16) 60%,rgba(255,122,89,.12));
+    border:1px solid rgba(255,255,255,.12);
+    display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+  }
+  .se-nav-band h2{font-size:clamp(20px,2.6vw,27px)}
+  .se-nav-band p{color:#c8d5ea;font-size:14px;margin-top:7px;max-width:560px}
+
+  /* footer */
+  .se-nav-footer{border-top:1px solid var(--se-nav-line);background:#0a0f1b;padding:46px 0 26px;margin-top:20px}
+  .se-nav-footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+  .se-nav-footer h3{font-size:13.5px;color:#e6eefe;margin-bottom:12px;letter-spacing:.04em}
+  .se-nav-footer p,.se-nav-footer li{font-size:12.8px;color:#8d9cb8}
+  .se-nav-footer li{margin-bottom:7px}
+  .se-nav-footer a:hover{color:var(--se-nav-mint)}
+  .se-nav-footer-bottom{
+    margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:#77869f;
+  }
+
+  /* toast + modal */
+  .se-nav-toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,18px);
+    background:#1c2740;border:1px solid rgba(87,224,192,.45);color:#d9fff6;
+    padding:11px 20px;border-radius:12px;font-size:13.5px;z-index:120;
+    opacity:0;pointer-events:none;transition:.24s;box-shadow:0 18px 40px rgba(0,0,0,.5);max-width:88vw;text-align:center;
+  }
+  .se-nav-toast.show{opacity:1;transform:translate(-50%,0)}
+  .se-nav-modal-mask{
+    position:fixed;inset:0;background:rgba(4,8,16,.72);backdrop-filter:blur(4px);
+    z-index:110;display:none;align-items:center;justify-content:center;padding:22px;
+  }
+  .se-nav-modal-mask.show{display:flex}
+  .se-nav-modal{
+    background:var(--se-nav-panel);border:1px solid rgba(255,255,255,.14);
+    border-radius:18px;max-width:460px;width:100%;padding:22px 22px 20px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+  .se-nav-modal h3{font-size:17px;margin-bottom:8px}
+  .se-nav-modal p{font-size:13.4px;color:var(--se-nav-ink-soft);margin-bottom:14px}
+  .se-nav-modal input,.se-nav-modal textarea{
+    width:100%;background:rgba(255,255,255,.05);border:1px solid var(--se-nav-line);
+    border-radius:10px;padding:9px 12px;color:var(--se-nav-ink);font-size:13.5px;
+    margin-bottom:10px;outline:none;font-family:inherit;
+  }
+  .se-nav-modal input:focus,.se-nav-modal textarea:focus{border-color:var(--se-nav-mint)}
+  .se-nav-modal-ops{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+  .se-nav-share-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:12px}
+  .se-nav-share-row button{
+    border:1px solid var(--se-nav-line);border-radius:10px;padding:10px 6px;font-size:12.5px;
+    color:#d3ddef;background:rgba(255,255,255,.04);
+  }
+  .se-nav-share-row button:hover{border-color:var(--se-nav-mint);color:var(--se-nav-mint)}
+
+  .se-nav-backtop{
+    position:fixed;right:22px;bottom:24px;width:44px;height:44px;border-radius:12px;
+    background:rgba(24,33,53,.94);border:1px solid rgba(87,224,192,.4);color:var(--se-nav-mint);
+    display:grid;place-items:center;font-size:17px;z-index:90;opacity:0;pointer-events:none;transition:.22s;
+  }
+  .se-nav-backtop.show{opacity:1;pointer-events:auto}
+  .se-nav-backtop:hover{background:rgba(87,224,192,.16)}
+
+  /* reveal */
+  .se-nav-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .se-nav-reveal.in{opacity:1;transform:none}
+
+  @media(max-width:1000px){
+    .se-nav-hero-grid{grid-template-columns:1fr;gap:30px}
+    .se-nav-hero-art{max-width:480px}
+    .se-nav-focus{grid-template-columns:1fr}
+    .se-nav-topics{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .se-nav-inspire{grid-template-columns:1fr}
+    .se-nav-footer-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:860px){
+    .se-nav-links{display:none}
+    .se-nav-search{width:180px}
+    .se-nav-burger{display:flex}
+    .se-nav-cta{display:none}
+    .se-nav-video-row{grid-template-columns:140px minmax(0,1fr)}
+    .se-nav-video-ops{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
+    .se-nav-video-ops .se-nav-op{flex:1;min-width:88px}
+    .se-nav-authors{grid-template-columns:1fr}
+    .se-nav-reviews{grid-template-columns:1fr}
+    .se-nav-story{grid-template-columns:1fr;gap:22px}
+    .se-nav-partners{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media(max-width:620px){
+    .se-nav-section{padding:46px 0}
+    .se-nav-hero{padding:34px 0 44px}
+    .se-nav-topics{grid-template-columns:1fr}
+    .se-nav-search{display:none}
+    .se-nav-hero-stats{grid-template-columns:1fr 1fr}
+    .se-nav-video-row{grid-template-columns:1fr}
+    .se-nav-video-row img{aspect-ratio:16/9}
+    .se-nav-footer-grid{grid-template-columns:1fr}
+    .se-nav-announce-inner{font-size:12px}
+    .se-nav-announce-time{display:none}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<div class="se-nav-root">
+
+  <!-- S1 公告条 + 页头（吸顶） -->
+  <div class="se-nav-sticky">
+    <div class="se-nav-announce">
+      <div class="se-nav-announce-inner">
+        <span class="se-nav-announce-tag">官方发布</span>
+        <span class="se-nav-announce-item"><b>新增 12 条高清片源</b>「城市夜行·第三季」全集上线，支持 1080P 下载</span>
+        <span class="se-nav-announce-item"><b>创作者招募</b>第 7 期报名截止 12 月 6 日</span>
+        <span class="se-nav-announce-time">更新于 2026-11-22</span>
+      </div>
+    </div>
+    <header class="se-nav-header">
+      <div class="se-nav-header-inner">
+        <a class="se-nav-brand" href="#se-nav-hero">
+          <span class="se-nav-logo">秘</span>
+          <span class="se-nav-brand-text">
+            <span class="se-nav-brand-name">秘密入口导航站点</span>
+            <span class="se-nav-brand-sub">VIDEO PORTAL</span>
+          </span>
+        </a>
+        <nav class="se-nav-links" aria-label="主导航">
+          <a class="se-nav-link" href="#se-nav-focus">焦点推荐</a>
+          <a class="se-nav-link" href="#se-nav-videos">片源库</a>
+          <a class="se-nav-link" href="#se-nav-topics">专题企划</a>
+          <a class="se-nav-link" href="#se-nav-authors">创作者</a>
+          <a class="se-nav-link" href="#se-nav-reviews">口碑</a>
+          <a class="se-nav-link" href="#se-nav-dyn">企业动态</a>
+          <a class="se-nav-link" href="#se-nav-faq">帮助</a>
+        </nav>
+        <div class="se-nav-tools">
+          <div class="se-nav-search" role="search">
+            <input id="se-nav-search-input" type="search" placeholder="搜索片源 / 创作者 / 专题" aria-label="站内搜索">
+            <button class="se-nav-search-go" id="se-nav-search-btn" type="button">搜索</button>
+          </div>
+          <button class="se-nav-cta" id="se-nav-submit-btn" type="button">投稿入口</button>
+          <button class="se-nav-burger" id="se-nav-burger" type="button" aria-label="展开导航" aria-expanded="false"><span></span></button>
+        </div>
+      </div>
+      <nav class="se-nav-mobile" id="se-nav-mobile" aria-label="移动端导航">
+        <ul>
+          <li><a href="#se-nav-focus">焦点推荐</a></li>
+          <li><a href="#se-nav-videos">片源库</a></li>
+          <li><a href="#se-nav-topics">专题企划</a></li>
+          <li><a href="#se-nav-authors">创作者</a></li>
+          <li><a href="#se-nav-stories">品牌故事</a></li>
+          <li><a href="#se-nav-reviews">用户口碑</a></li>
+          <li><a href="#se-nav-dyn">企业动态</a></li>
+          <li><a href="#se-nav-faq">常见问题</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <div class="se-nav-search-flash" id="se-nav-search-flash" role="status" aria-live="polite"></div>
+
+  <!-- S2 品牌首屏 -->
+  <section class="se-nav-hero" id="se-nav-hero">
+    <div class="se-nav-shell">
+      <div class="se-nav-hero-grid">
+        <div>
+          <span class="se-nav-hero-badge"><i></i>官方网站 · 高清正版 · 持续运营中</span>
+          <h1 class="se-nav-h1">秘密入口导航站点<br><span>精选片源，一站直达</span></h1>
+          <p class="se-nav-hero-desc">
+            作为深耕视频导航垂直领域的品牌，我们以<strong>专业</strong>的片源整理能力与<strong>值得信赖</strong>的入口机制，
+            为观众与创作者搭建高品质内容生态。每一次点击，都是一次被认真筛选过的<strong>秘密入口</strong>。
+          </p>
+          <p class="se-nav-hero-desc">
+            秘密入口导航站点官方网站聚焦原创影像、城市记录与人物故事，坚持正版、高清、可追溯的内容标准。
+            平台汇聚来自不同城市的创作者，以真实记录与匠心剪辑，让优质内容被更多人看见；社区每日更新，
+            以口碑驱动排序，让精品内容自然浮现。
+          </p>
+          <div class="se-nav-hero-actions">
+            <a class="se-nav-btn se-nav-btn-primary" href="#se-nav-videos">进入片源库</a>
+            <a class="se-nav-btn se-nav-btn-ghost" href="#se-nav-topics">查看专题企划</a>
+            <button class="se-nav-btn se-nav-btn-ghost" id="se-nav-share-top" type="button">分享本站</button>
+          </div>
+          <div class="se-nav-hero-stats">
+            <div>
+              <div class="se-nav-stat-num" data-count="12800">12800+</div>
+              <div class="se-nav-stat-label">已收录高清片源</div>
+            </div>
+            <div>
+              <div class="se-nav-stat-num" data-count="460">460</div>
+              <div class="se-nav-stat-label">签约创作者</div>
+            </div>
+            <div>
+              <div class="se-nav-stat-num" data-count="98">98%</div>
+              <div class="se-nav-stat-label">用户口碑好评率</div>
+            </div>
+          </div>
+        </div>
+        <div class="se-nav-hero-art">
+          <div class="se-nav-hero-art-frame">
+            <img alt="秘密入口导航站点首屏主视觉：深色城市夜幕中的多路影像入口与光点路径" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 600'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23101828'/%3E%3Cstop offset='.55' stop-color='%231a2a44'/%3E%3Cstop offset='1' stop-color='%230e2230'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2357e0c0'/%3E%3Cstop offset='1' stop-color='%238d7bf5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='600' fill='url(%23g1)'/%3E%3Cg fill='none' stroke='url(%23g2)' stroke-width='1.4' opacity='.65'%3E%3Cpath d='M40 470 C120 400 160 320 240 300 S360 220 440 140'/%3E%3Cpath d='M20 520 C110 470 170 390 250 360 S370 290 460 210'/%3E%3Cpath d='M60 420 C150 360 190 280 270 250 S380 180 450 100'/%3E%3C/g%3E%3Cg fill='%2357e0c0'%3E%3Ccircle cx='240' cy='300' r='6'/%3E%3Ccircle cx='270' cy='250' r='4'/%3E%3Ccircle cx='250' cy='360' r='4.5'/%3E%3Ccircle cx='440' cy='140' r='5'/%3E%3C/g%3E%3Cg fill='%23ff7a59'%3E%3Ccircle cx='150' cy='380' r='3.5'/%3E%3Ccircle cx='360' cy='210' r='3.5'/%3E%3C/g%3E%3Cg opacity='.9'%3E%3Crect x='86' y='96' width='132' height='84' rx='10' fill='%23172741' stroke='rgba(255,255,255,.18)'/%3E%3Crect x='98' y='108' width='108' height='54' rx='6' fill='%23213656'/%3E%3Cpath d='M142 126 l18 10 -18 10z' fill='%2357e0c0'/%3E%3Crect x='98' y='168' width='62' height='5' rx='2.5' fill='%23335077'/%3E%3Crect x='262' y='352' width='146' height='96' rx='10' fill='%231a2842' stroke='rgba(255,255,255,.18)'/%3E%3Crect x='276' y='366' width='118' height='58' rx='6' fill='%232a3f60'/%3E%3Cpath d='M326 384 l20 11 -20 11z' fill='%23ff7a59'/%3E%3Crect x='276' y='432' width='78' height='5' rx='2.5' fill='%233a537c'/%3E%3C/g%3E%3Cg opacity='.5' fill='%2357e0c0'%3E%3Ccircle cx='110' cy='500' r='2'/%3E%3Ccircle cx='170' cy='540' r='2.4'/%3E%3Ccircle cx='320' cy='500' r='2'/%3E%3Ccircle cx='392' cy='470' r='2.6'/%3E%3Ccircle cx='80' cy='250' r='2'/%3E%3C/g%3E%3C/svg%3E">
+          </div>
+          <div class="se-nav-hero-chip"><b>今日更新</b>18 条片源 · 6 位创作者</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 焦点推荐 -->
+  <section class="se-nav-section" id="se-nav-focus">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Focus / 焦点推荐</span>
+          <h2 class="se-nav-h2">今日<em>焦点</em>：秘密入口导航站点的四条主线</h2>
+          <p class="se-nav-lead">编辑部每日从秘密入口导航站点片源库中挑选值得停留的内容，按可看性、信息密度与真实感排序，不为流量让步。</p>
+        </div>
+        <a class="se-nav-btn se-nav-btn-ghost" href="#se-nav-videos">查看全部片源 →</a>
+      </div>
+
+      <div class="se-nav-focus se-nav-reveal">
+        <article class="se-nav-focus-main">
+          <img alt="焦点内容封面：深夜城市高架桥上的车流光轨与地铁入口灯光" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230b1526'/%3E%3Cstop offset='1' stop-color='%23223a52'/%3E%3C/linearGradient%3E%3ClinearGradient id='road' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23ff7a59'/%3E%3Cstop offset='.5' stop-color='%23ffd08a'/%3E%3Cstop offset='1' stop-color='%2357e0c0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23sky)'/%3E%3Cg fill='%23132036'%3E%3Crect x='0' y='210' width='120' height='180'/%3E%3Crect x='120' y='170' width='90' height='220'/%3E%3Crect x='210' y='230' width='110' height='160'/%3E%3Crect x='520' y='190' width='100' height='200'/%3E%3Crect x='620' y='150' width='120' height='240'/%3E%3Crect x='740' y='240' width='60' height='150'/%3E%3C/g%3E%3Cg fill='%23ffd08a' opacity='.7'%3E%3Crect x='140' y='200' width='10' height='12'/%3E%3Crect x='170' y='230' width='10' height='12'/%3E%3Crect x='240' y='260' width='10' height='12'/%3E%3Crect x='540' y='220' width='10' height='12'/%3E%3Crect x='650' y='190' width='10' height='12'/%3E%3C/g%3E%3Cpath d='M0 400 Q200 340 400 380 T800 360 L800 450 L0 450 Z' fill='%23101a2c'/%3E%3Cpath d='M0 392 Q220 348 430 372 T800 352' fill='none' stroke='url(%23road)' stroke-width='5' opacity='.85'/%3E%3Cpath d='M0 418 Q240 384 470 402 T800 388' fill='none' stroke='%2357e0c0' stroke-width='3' opacity='.6'/%3E%3Ccircle cx='400' cy='120' r='34' fill='%23f4f0dd' opacity='.9'/%3E%3C/svg%3E">
+          <div class="se-nav-focus-body">
+            <div class="se-nav-tagrow">
+              <span class="se-nav-tag">城市探索</span>
+              <span class="se-nav-tag se-nav-tag-coral">1080P 高清</span>
+              <span class="se-nav-tag se-nav-tag-violet">官方精选</span>
+            </div>
+            <h3 class="se-nav-focus-title">城市夜行·第三季：六个藏在通勤线路旁的城市入口</h3>
+            <p class="se-nav-focus-excerpt">
+              从高架桥下的旧书摊到地铁换乘通道里的手风琴声，这一季我们只走本地人每天路过却极少停留的路段。
+              全片 42 分钟，四机位跟拍，保留了现场环境音，未做美化处理。
+            </p>
+            <div class="se-nav-meta">
+              <span>创作者：拾光路客</span><span>播放 26.4 万</span><span>点赞 1.8 万</span><span>收藏 9,320</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="se-nav-side">
+          <article class="se-nav-side-item">
+            <h3>一分钟看懂片源标号：入口编号到底怎么读</h3>
+            <p>用一条 3 分钟的科普短片，讲清秘密入口导航站点的编号规则、清晰度分级与更新节奏。</p>
+            <div class="se-nav-meta"><span>知识科普</span><span>播放 12.1 万</span></div>
+          </article>
+          <article class="se-nav-side-item">
+            <h3>剪辑幕后：一支 8 分钟纪录短片如何取舍 200 小时素材</h3>
+            <p>创作者「白噪工作室」公开时间线与废片清单，讨论删掉什么比留下什么更难。</p>
+            <div class="se-nav-meta"><span>创作幕后</span><span>播放 8.7 万</span></div>
+          </article>
+          <article class="se-nav-side-item">
+            <h3>人物访谈：把导航做成一种生活习惯的人</h3>
+            <p>与资深内容策展人对谈内容筛选的边界感，以及为什么坚持人工复核。</p>
+            <div class="se-nav-meta"><span>人物访谈</span><span>播放 6.3 万</span></div>
+          </article>
+          <article class="se-nav-side-item">
+            <h3>实测：同一片源在三种设备上的画质差异</h3>
+            <p>手机、平板与电视端逐帧对照，给出适合不同场景的观看建议与下载策略。</p>
+            <div class="se-nav-meta"><span>深度测评</span><span>播放 5.9 万</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 视频流 -->
+  <section class="se-nav-section se-nav-section-alt" id="se-nav-videos">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Library / 片源库</span>
+          <h2 class="se-nav-h2">秘密入口导航站点<em>片源库</em>：本期六条值得一看</h2>
+          <p class="se-nav-lead">每条片源均标注创作者、标签与互动数据，支持点赞与收藏，收藏内容会进入你的个人入口清单。</p>
+        </div>
+      </div>
+
+      <div class="se-nav-video-list se-nav-reveal">
+        <article class="se-nav-video-row">
+          <img alt="片源缩略图：清晨菜市场里冒着热气的早点摊位与来往人群" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23f0e3cf'/%3E%3Crect x='0' y='120' width='320' height='60' fill='%23cbb392'/%3E%3Crect x='20' y='60' width='80' height='60' fill='%23e07a4f'/%3E%3Crect x='120' y='50' width='70' height='70' fill='%23a8633c'/%3E%3Crect x='210' y='70' width='90' height='50' fill='%23d9a86c'/%3E%3Cg fill='%23fff8ec' opacity='.8'%3E%3Ccircle cx='60' cy='40' r='14'/%3E%3Ccircle cx='82' cy='30' r='10'/%3E%3Ccircle cx='240' cy='46' r='12'/%3E%3C/g%3E%3Cg fill='%235d4a33'%3E%3Ccircle cx='150' cy='140' r='9'/%3E%3Ccircle cx='185' cy='146' r='7'/%3E%3Ccircle cx='100' cy='150' r='8'/%3E%3C/g%3E%3C/svg%3E">
+          <div>
+            <div class="se-nav-tagrow"><span class="se-nav-tag">日常记录</span><span class="se-nav-tag se-nav-tag-coral">美食烹饪</span></div>
+            <h3 class="se-nav-video-title">五点四十分的城市早餐图鉴：一条街上的十二种热气</h3>
+            <p class="se-nav-video-desc">跟拍早餐摊主的一天，从备料到收摊，记录城市最早亮灯的那批人。全片无旁白，只保留现场声。</p>
+            <div class="se-nav-meta"><span>作者：晨雾食记</span><span>播放 18.9 万</span><span>点赞 1.2 万</span><span>收藏 6,780</span></div>
+          </div>
+          <div class="se-nav-video-ops">
+            <button class="se-nav-op se-nav-like" type="button" data-count="12043">♥ 点赞</button>
+            <button class="se-nav-op se-nav-save" type="button">☆ 收藏</button>
+          </div>
+        </article>
+
+        <article class="se-nav-video-row">
+          <img alt="片源缩略图：工作室桌面上的剪辑时间线与散落的硬盘标签" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23202838'/%3E%3Crect x='18' y='26' width='284' height='128' rx='8' fill='%23f3f4f7'/%3E%3Crect x='18' y='26' width='284' height='20' rx='8' fill='%23d8dce4'/%3E%3Cg fill='%238d7bf5'%3E%3Crect x='34' y='62' width='86' height='12' rx='6'/%3E%3Crect x='34' y='92' width='140' height='12' rx='6'/%3E%3Crect x='34' y='122' width='64' height='12' rx='6'/%3E%3C/g%3E%3Cg fill='%2357e0c0'%3E%3Crect x='134' y='62' width='120' height='12' rx='6'/%3E%3Crect x='196' y='92' width='88' height='12' rx='6'/%3E%3Crect x='180' y='122' width='104' height='12' rx='6'/%3E%3C/g%3E%3C/g%3E%3Cpath d='M232 70 l12 7 -12 7z' fill='%23ff7a59'/%3E%3C/svg%3E">
+          <div>
+            <div class="se-nav-tagrow"><span class="se-nav-tag se-nav-tag-violet">创作幕后</span><span class="se-nav-tag">教程干货</span></div>
+            <h3 class="se-nav-video-title">把 200 小时素材剪成 8 分钟：一份可复用的取舍清单</h3>
+            <p class="se-nav-video-desc">从关键词打标到粗剪节奏，白噪工作室拆解纪录片剪辑流程，并公开被删掉的 37 个镜头。</p>
+            <div class="se-nav-meta"><span>作者：白噪工作室</span><span>播放 9.2 万</span><span>点赞 8,640</span><span>收藏 4,215</span></div>
+          </div>
+          <div class="se-nav-video-ops">
+            <button class="se-nav-op se-nav-like" type="button" data-count="8641">♥ 点赞</button>
+            <button class="se-nav-op se-nav-save" type="button">☆ 收藏</button>
+          </div>
+        </article>
+
+        <article class="se-nav-video-row">
+          <img alt="片源缩略图：老城区石阶巷子里的猫与晾晒的衣物" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23cfd8d3'/%3E%3Cpath d='M0 130 L70 88 L150 122 L230 84 L320 126 L320 180 L0 180 Z' fill='%237b8f84'/%3E%3Cg fill='%23e8eeea'%3E%3Crect x='40' y='96' width='52' height='40'/%3E%3Crect x='120' y='108' width='46' height='34'/%3E%3Crect x='212' y='98' width='58' height='42'/%3E%3C/g%3E%3Cg stroke='%235d7068' stroke-width='2'%3E%3Cline x1='40' y1='70' x2='130' y2='70'/%3E%3Cline x1='60' y1='70' x2='60' y2='88'/%3E%3Cline x1='96' y1='70' x2='96' y2='88'/%3E%3C/g%3E%3Cg fill='%23f0b357'%3E%3Crect x='62' y='72' width='14' height='12'/%3E%3Crect x='86' y='74' width='12' height='10'/%3E%3C/g%3E%3Cg fill='%23394340'%3E%3Cellipse cx='176' cy='146' rx='14' ry='10'/%3E%3Ccircle cx='188' cy='136' r='7'/%3E%3C/g%3E%3Cpath d='M182 130 l3 -7 3 7z' fill='%23394340'/%3E%3C/svg%3E">
+          <div>
+            <div class="se-nav-tagrow"><span class="se-nav-tag">城市探索</span><span class="se-nav-tag se-nav-tag-coral">在地文化</span></div>
+            <h3 class="se-nav-video-title">巷子里的第三空间：五个被居民自己改造的角落</h3>
+            <p class="se-nav-video-desc">石阶、天井、废弃车棚，被居民一点点改成共享空间。这部短片记录了改造过程与使用日常。</p>
+            <div class="se-nav-meta"><span>作者：巷口观察员</span><span>播放 7.6 万</span><span>点赞 6,120</span><span>收藏 3,308</span></div>
+          </div>
+          <div class="se-nav-video-ops">
+            <button class="se-nav-op se-nav-like" type="button" data-count="6120">♥ 点赞</button>
+            <button class="se-nav-op se-nav-save" type="button">☆ 收藏</button>
+          </div>
+        </article>
+
+        <article class="se-nav-video-row">
+          <img alt="片源缩略图：三台不同尺寸屏幕并排播放同一画面进行画质对照" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%231b2333'/%3E%3Cg%3E%3Crect x='16' y='40' width='80' height='58' rx='6' fill='%23eef1f6' stroke='%2357e0c0' stroke-width='3'/%3E%3Crect x='112' y='34' width='96' height='70' rx='6' fill='%23eef1f6' stroke='%238d7bf5' stroke-width='3'/%3E%3Crect x='224' y='28' width='84' height='82' rx='6' fill='%23eef1f6' stroke='%23ff7a59' stroke-width='3'/%3E%3C/g%3E%3Cg fill='%23b7c2d4'%3E%3Crect x='32' y='56' width='48' height='6' rx='3'/%3E%3Crect x='32' y='70' width='36' height='6' rx='3'/%3E%3Crect x='128' y='52' width='64' height='8' rx='4'/%3E%3Crect x='128' y='70' width='48' height='8' rx='4'/%3E%3Crect x='240' y='46' width='52' height='10' rx='5'/%3E%3Crect x='240' y='66' width='40' height='10' rx='5'/%3E%3C/g%3E%3Crect x='16' y='140' width='292' height='10' rx='5' fill='%2334445d'/%3E%3C/svg%3E">
+          <div>
+            <div class="se-nav-tagrow"><span class="se-nav-tag">深度测评</span><span class="se-nav-tag se-nav-tag-violet">实用技巧</span></div>
+            <h3 class="se-nav-video-title">同屏对照：三种终端播放同一片源的真实差异</h3>
+            <p class="se-nav-video-desc">逐帧比对口型与暗部细节，并给出手机、平板、电视三端的最佳播放参数与下载建议。</p>
+            <div class="se-nav-meta"><span>作者：像素校准师</span><span>播放 5.4 万</span><span>点赞 4,830</span><span>收藏 2,914</span></div>
+          </div>
+          <div class="se-nav-video-ops">
+            <button class="se-nav-op se-nav-like" type="button" data-count="4830">♥ 点赞</button>
+            <button class="se-nav-op se-nav-save" type="button">☆ 收藏</button>
+          </div>
+        </article>
+
+        <article class="se-nav-video-row">
+          <img alt="片源缩略图：手作工作室里被灯光照亮的陶土与工具架" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23c9a586'/%3E%3Crect x='0' y='120' width='320' height='60' fill='%23966f4f'/%3E%3Cg fill='%23e3c5a4'%3E%3Ccircle cx='86' cy='104' r='22'/%3E%3Ccircle cx='150' cy='112' r='16'/%3E%3Ccircle cx='212' cy='100' r='26'/%3E%3C/g%3E%3Cg stroke='%235c3f2a' stroke-width='4'%3E%3Cline x1='20' y1='40' x2='300' y2='40'/%3E%3C/g%3E%3Cg fill='%23664a33'%3E%3Crect x='40' y='24' width='8' height='32' rx='4'/%3E%3Crect x='110' y='18' width='8' height='38' rx='4'/%3E%3Crect x='188' y='26' width='8' height='30' rx='4'/%3E%3Crect x='258' y='20' width='8' height='36' rx='4'/%3E%3C/g%3E%3Ccircle cx='268' cy='54' r='27' fill='%23f4e2c9' opacity='.75'/%3E%3C/svg%3E">
+          <div>
+            <div class="se-nav-tagrow"><span class="se-nav-tag se-nav-tag-coral">手作 DIY</span><span class="se-nav-tag">生活方式</span></div>
+            <h3 class="se-nav-video-title">从一抔土到一只杯：手作人的十道工序与两次放弃</h3>
+            <p class="se-nav-video-desc">慢镜头记录拉坯、修坯与上釉，也记录两次烧裂后的重来。片尾附初学者避坑清单。</p>
+            <div class="se-nav-meta"><span>作者：陶土与光</span><span>播放 4.8 万</span><span>点赞 4,109</span><span>收藏 2,662</span></div>
+          </div>
+          <div class="se-nav-video-ops">
+            <button class="se-nav-op se-nav-like" type="button" data-count="4109">♥ 点赞</button>
+            <button class="se-nav-op se-nav-save" type="button">☆ 收藏</button>
+          </div>
+        </article>
+
+        <article class="se-nav-video-row">
+          <img alt="片源缩略图：夜间河岸边直播广播设备与便携灯架" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%2313232f'/%3E%3Ccircle cx='252' cy='44' r='22' fill='%23f4efd8' opacity='.85'/%3E%3Cpath d='M0 130 Q80 112 160 126 T320 118 L320 180 L0 180 Z' fill='%230d2b3a'/%3E%3Cg stroke='%2357e0c0' stroke-width='3' fill='none'%3E%3Cpath d='M70 134 l0 -48 l34 0 l0 48'/%3E%3Cpath d='M78 86 l0 -18 l18 0 l0 18'/%3E%3C/g%3E%3Ccircle cx='87' cy='112' r='10' fill='%23ff7a59'/%3E%3Cg fill='%23e9f6f1'%3E%3Crect x='150' y='96' width='6' height='38' rx='3'/%3E%3Crect x='168' y='88' width='6' height='46' rx='3'/%3E%3C/g%3E%3Cpath d='M180 120 q22 -12 44 0' stroke='%238d7bf5' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+          <div>
+            <div class="se-nav-tagrow"><span class="se-nav-tag">音乐现场</span><span class="se-nav-tag se-nav-tag-violet">城市探索</span></div>
+            <h3 class="se-nav-video-title">河边的一场没有舞台的演出：三个乐队的接力夜晚</h3>
+            <p class="se-nav-video-desc">没有灯光台，也没有固定观众席。三支独立乐队沿河岸接续演出，我们把整晚录了下来。</p>
+            <div class="se-nav-meta"><span>作者：夜岸声场</span><span>播放 3.9 万</span><span>点赞 3,540</span><span>收藏 1,987</span></div>
+          </div>
+          <div class="se-nav-video-ops">
+            <button class="se-nav-op se-nav-like" type="button" data-count="3540">♥ 点赞</button>
+            <button class="se-nav-op se-nav-save" type="button">☆ 收藏</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关键词深度解析（≥800字） -->
+  <section class="se-nav-section" id="se-nav-about">
+    <div class="se-nav-shell se-nav-reveal">
+      <span class="se-nav-kicker">About / 深度解析</span>
+      <h2 class="se-nav-h2">读懂<em>秘密入口导航站点</em>：一个视频导航品牌的内容方法论</h2>
+      <p class="se-nav-lead">很多人第一次听到「秘密入口导航站点」，会以为它只是一个链接集合。实际上，它更像是一套长期运转的筛选机制：把分散的影像重新组织成可被信任的路径。</p>
+
+      <div class="se-nav-story" style="margin-top:30px">
+        <div class="se-nav-story-text">
+          <h3 class="se-nav-h3">一、为什么是「导航」：信息过载下的确定感</h3>
+          <p>
+            视频内容从来不缺，缺的是确定感。观众打开一个页面，面对的是成百上千条自动推荐，算法能算出你可能喜欢什么，
+            却很难回答「这条值不值得我花四十分钟」。秘密入口导航站点选择从这个问题出发：不以推送数量取胜，而以人工复核与持续更新的片源清单，
+            让每一次进入都有明确预期。我们把片源按主题、区域、时长、清晰度与内容完成度分层，标注创作者与更新状态，
+            并保留随时下架不合格内容的权利。这种看起来偏慢的做法，反而在长周期里积累了口碑。
+          </p>
+          <p>
+            在品牌官方网站的定位里，导航不是入口的堆叠，而是<strong>判断力</strong>的产品化。编辑团队每周进行两轮复核，
+            第一轮看技术指标，包括码率、音轨完整度与字幕准确率；第二轮看内容价值，包括信息密度、原创程度与是否存在拼接搬运。
+            通过两轮的内容才会获得「官方精选」标识，而这类内容在片源库中的占比长期控制在两成以内。
+          </p>
+
+          <h3 class="se-nav-h3">二、内容生态如何运转：创作者、观众与编辑的三方协作</h3>
+          <p>
+            一个可持续的视频社区，不能只靠平台方单向供给。秘密入口导航站点在机制设计上强调三方协作：
+            创作者提供原创内容与幕后素材，观众通过点赞、收藏与评价反馈真实观感，编辑则负责校准排序与补充背景信息。
+            我们为每位签约创作者保留独立主页，展示擅长领域、作品数量与粉丝规模，并鼓励创作者上传创作笔记，
+            把选题过程、拍摄条件与设备限制都写清楚。观众看到的不只是成片，还有成片背后的取舍。
+          </p>
+          <p>
+            为了减少劣币驱逐良币，平台在排序上采用「口碑权重 + 时间衰减」的混合模型：上线首周看互动质量，
+            次周起逐步引入收藏率与完播率，并对疑似刷量的账号直接降权。我们同时保留人工申诉通道，
+            创作者可以在七个工作日内提交材料说明，复核结果会以站内信形式告知。这套流程并不轻松，却是维持平台公信力的必要成本。
+          </p>
+
+          <h3 class="se-nav-h3">三、画质与正版：技术标准背后的态度</h3>
+          <p>
+            对视频平台来说，清晰度是显性指标，正版授权是隐性底线。秘密入口导航站点对入库片源设定了统一的技术门槛：
+            默认要求 1080P 起，重点内容提供 4K 版本；音频不低于是 128kbps 的立体声，纪录片类内容需保留原始环境音；
+            字幕须由创作者或授权方提供，不允许未经校对机翻直接上线。技术标准看似枯燥，但它决定了观看体验的下限，
+            也决定了平台在创作者心中的专业度。
+          </p>
+          <p>
+            正版层面，我们与创作者签署内容授权协议，明确线上播放、站内推荐与二次剪辑的边界；
+            对企业合作内容，则要求提供完整的素材来源说明。品牌方在官方网站发布合作片单时，可以同步查看到授权范围与到期时间。
+            这套略显繁琐的流程，让秘密入口导航站点在商业合作中保持了稳定的信任度，也让「值得信赖」不只是一句口号。
+          </p>
+
+          <h3 class="se-nav-h3">四、社区温度：从一次收藏开始的长期陪伴</h3>
+          <p>
+            我们更愿意把秘密入口导航站点理解成一个缓慢生长的社区，而不是流量池。用户收藏一条片源，往往意味着它和某段生活经验对上了，
+            所以我们把收藏做成了可见的「个人入口清单」，并在每周固定时间提醒用户回看。评论区不追求热闹，
+            更看重有信息量的短评：拍摄地点是否可到达、设备门槛是否友好、片子适合什么时段观看。
+            这些细节叠加起来，构成了社区的真实质感，也让新观众更容易建立预期。
+          </p>
+          <p>
+            面向未来，我们会继续在三个方向上投入：其一，扩大城市影像的覆盖密度，让更多在地创作者被看见；
+            其二，完善创作工具与灵感库，降低新人的起步门槛；其三，把企业动态与内容更新公开透明地呈现，
+            让每位用户都能追踪平台的成长轨迹。作为持续运营的视频品牌官方网站，我们相信长期主义比短期爆发更有力量，
+            也愿意用一年又一年的更新，陪伴创作者和观众一起成长。
+          </p>
+        </div>
+
+        <div class="se-nav-story-list">
+          <article class="se-nav-story-card">
+            <h3>我们的三条内容准则</h3>
+            <p>宁少勿滥：每日入库量设上限，避免为了数量稀释质量；来源可查：每条片源标注创作者与授权状态；鼓励原创：对首发与独家内容给予流量与推荐资源倾斜。</p>
+          </article>
+          <article class="se-nav-story-card">
+            <h3>一次真实的复核记录</h3>
+            <p>2026 年 9 月，一条播放量突破 40 万的短片因音轨疑似替换被观众反馈。编辑团队在 6 小时内完成比对，确认问题后下架并要求创作者重新上传，同时公开了处理说明。</p>
+          </article>
+          <article class="se-nav-story-card">
+            <h3>数据是结果，不是目标</h3>
+            <p>我们把播放量当作观察指标，而不是唯一考核。收藏率、完整观看比例与评价质量共同构成推荐依据，避免出现「标题很强、内容很空」的内容占据首页。</p>
+          </article>
+          <p class="se-nav-note">以上方法论已写入品牌官方发布的内容白皮书，用户可在帮助中心下载最新版本，了解秘密入口导航站点的完整审核流程与申诉规则。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 专题企划 -->
+  <section class="se-nav-section se-nav-section-alt" id="se-nav-topics">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Series / 专题企划</span>
+          <h2 class="se-nav-h2">三个正在更新的<em>专题</em>：从城市到生活</h2>
+          <p class="se-nav-lead">专题由编辑与创作者共同策划，按周更新。每个专题包含三条核心内容，并公开当前进度。</p>
+        </div>
+      </div>
+
+      <div class="se-nav-topics se-nav-reveal">
+        <article class="se-nav-topic">
+          <img alt="专题封面：城市街角的路牌与黄昏光线下的行人剪影" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='dusk' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f3a06a'/%3E%3Cstop offset='.6' stop-color='%23e2735c'/%3E%3Cstop offset='1' stop-color='%236e4a57'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23dusk)'/%3E%3Ccircle cx='370' cy='80' r='42' fill='%23ffe6bd' opacity='.9'/%3E%3Cpath d='M0 200 L120 168 L240 196 L360 160 L480 194 L480 270 L0 270 Z' fill='%23383a4d'/%3E%3Cg fill='%232a2c3c'%3E%3Crect x='60' y='120' width='10' height='80'/%3E%3Crect x='54' y='106' width='74' height='20' rx='4'/%3E%3C/g%3E%3Cg fill='%23fff2dc'%3E%3Crect x='62' y='112' width='58' height='8' rx='3'/%3E%3C/g%3E%3Cg fill='%23222430'%3E%3Cellipse cx='200' cy='212' rx='12' ry='34'/%3E%3Ccircle cx='200' cy='168' r='11'/%3E%3Cellipse cx='300' cy='218' rx='10' ry='28'/%3E%3Ccircle cx='300' cy='182' r='9'/%3E%3C/g%3E%3C/svg%3E">
+          <div class="se-nav-topic-body">
+            <h3>城市入口计划 · 第二季</h3>
+            <p>走进十五个城市的日常动线，寻找那些每天经过却从未停留的入口，记录在地生活真实状态。</p>
+            <ul class="se-nav-topic-items">
+              <li>vol.07 高架桥下的旧书摊</li>
+              <li>vol.08 换乘通道里的手风琴</li>
+              <li>vol.09 社区天井的露天电影</li>
+            </ul>
+            <div class="se-nav-meta"><span>更新至 vol.09</span><span>每周三更新</span></div>
+          </div>
+        </article>
+
+        <article class="se-nav-topic">
+          <img alt="专题封面：剪辑工作台屏幕上的时间轴与波形图细节" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23131c2c'/%3E%3Crect x='30' y='30' width='420' height='210' rx='10' fill='%231d283c' stroke='rgba(87,224,192,.35)'/%3E%3Cg fill='%232b3a55'%3E%3Crect x='52' y='58' width='160' height='90' rx='6'/%3E%3Crect x='228' y='58' width='200' height='90' rx='6'/%3E%3C/g%3E%3Cpath d='M96 168 q10 -26 20 0 t20 0 t20 0 t20 0 t20 0' fill='none' stroke='%2357e0c0' stroke-width='3'/%3E%3Cpath d='M96 190 q14 -18 28 0 t28 0 t28 0 t28 0' fill='none' stroke='%238d7bf5' stroke-width='3'/%3E%3Cg fill='%23ff7a59'%3E%3Crect x='52' y='210' width='72' height='9' rx='4.5'/%3E%3Crect x='140' y='210' width='44' height='9' rx='4.5'/%3E%3C/g%3E%3Cg fill='%233a4d6d'%3E%3Crect x='196' y='210' width='100' height='9' rx='4.5'/%3E%3Crect x='308' y='210' width='120' height='9' rx='4.5'/%3E%3C/g%3E%3C/svg%3E">
+          <div class="se-nav-topic-body">
+            <h3>创作者的十小时 · 幕后实录</h3>
+            <p>不加滤镜地展示一支短片的诞生：选题、勘景、拍摄、剪辑与上线后的复盘，全程跟拍记录。</p>
+            <ul class="se-nav-topic-items">
+              <li>01 选题会上的三次否决</li>
+              <li>02 雨天补拍与器材应急</li>
+              <li>03 剪辑台上的删除决定</li>
+            </ul>
+            <div class="se-nav-meta"><span>更新至 03</span><span>每周五更新</span></div>
+          </div>
+        </article>
+
+        <article class="se-nav-topic">
+          <img alt="专题封面：木质桌面上摊开的手账、咖啡杯与植物剪影" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23e8dcc8'/%3E%3Crect x='0' y='180' width='480' height='90' fill='%23c5a986'/%3E%3Crect x='60' y='96' width='180' height='120' rx='6' fill='%23fbf6ec' stroke='%23c0a887' stroke-width='2'/%3E%3Cg stroke='%23b8a189' stroke-width='3'%3E%3Cline x1='82' y1='126' x2='218' y2='126'/%3E%3Cline x1='82' y1='146' x2='200' y2='146'/%3E%3Cline x1='82' y1='166' x2='212' y2='166'/%3E%3C/g%3E%3Ccircle cx='320' cy='130' r='34' fill='%23f7f1e4' stroke='%23b9926c' stroke-width='4'/%3E%3Ccircle cx='320' cy='130' r='20' fill='%236b4a33'/%3E%3Cpath d='M392 180 q10 -60 44 -66 q-16 42 -44 66z' fill='%237c9a6e'/%3E%3Cpath d='M392 180 q-14 -48 -42 -52 q12 36 42 52z' fill='%23638557'/%3E%3Crect x='380' y='176' width='30' height='44' rx='5' fill='%23a4693f'/%3E%3C/svg%3E">
+          <div class="se-nav-topic-body">
+            <h3>慢下来的练习 · 生活影像</h3>
+            <p>围绕日常记录与生活方式，邀请三位创作者用一周时间拍摄同一件小事，比较不同视角下的节奏。</p>
+            <ul class="se-nav-topic-items">
+              <li>一杯手冲的七分钟</li>
+              <li>整理书架的两种顺序</li>
+              <li>窗边植物的季节变化</li>
+            </ul>
+            <div class="se-nav-meta"><span>更新至 03</span><span>已完结</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 创作者矩阵 -->
+  <section class="se-nav-section" id="se-nav-authors">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Creators / 创作者矩阵</span>
+          <h2 class="se-nav-h2">秘密入口导航站点的<em>创作者</em>们</h2>
+          <p class="se-nav-lead">六位长期合作的创作者，覆盖城市记录、人物访谈、美食、测评与手作等垂直领域，点击可查看完整档案。</p>
+        </div>
+      </div>
+
+      <div class="se-nav-authors se-nav-reveal">
+        <article class="se-nav-author">
+          <div class="se-nav-avatar" style="background:linear-gradient(135deg,#57e0c0,#2f9d8f)">拾</div>
+          <div class="se-nav-author-body">
+            <div class="se-nav-author-name">拾光路客 <span class="se-nav-tag">签约创作者</span></div>
+            <div class="se-nav-author-field">擅长：城市探索 / 日常记录</div>
+            <p class="se-nav-author-bio">纪录片编导出身，习惯用长镜头记录城市动线。五年间拍摄了四十余条城市短片，坚持现场收音与自然光拍摄，认为城市的真实感来自未被安排的细节。</p>
+            <div class="se-nav-author-nums"><span>作品 <b>46</b></span><span>粉丝 <b>23.6 万</b></span><span>获赞 <b>18.4 万</b></span></div>
+          </div>
+        </article>
+
+        <article class="se-nav-author">
+          <div class="se-nav-avatar" style="background:linear-gradient(135deg,#8d7bf5,#5f4fd1)">白</div>
+          <div class="se-nav-author-body">
+            <div class="se-nav-author-name">白噪工作室 <span class="se-nav-tag se-nav-tag-violet">幕后团队</span></div>
+            <div class="se-nav-author-field">擅长：创作幕后 / 教程干货</div>
+            <p class="se-nav-author-bio">由剪辑师与声音设计师组成的小团队，专注幕后拆解与流程教学。擅长把复杂的后期流程讲成可执行的步骤，公开过完整时间线与素材整理方案。</p>
+            <div class="se-nav-author-nums"><span>作品 <b>38</b></span><span>粉丝 <b>16.2 万</b></span><span>获赞 <b>11.9 万</b></span></div>
+          </div>
+        </article>
+
+        <article class="se-nav-author">
+          <div class="se-nav-avatar" style="background:linear-gradient(135deg,#ff7a59,#d5502f)">晨</div>
+          <div class="se-nav-author-body">
+            <div class="se-nav-author-name">晨雾食记 <span class="se-nav-tag se-nav-tag-coral">美食方向</span></div>
+            <div class="se-nav-author-field">擅长：美食烹饪 / 在地文化</div>
+            <p class="se-nav-author-bio">每天清晨出门找早餐摊，十年间记录了三百多家小店。镜头克制，不渲染调味，更关注摊主的手上动作与街区作息，希望通过食物看见城市运转。</p>
+            <div class="se-nav-author-nums"><span>作品 <b>52</b></span><span>粉丝 <b>19.8 万</b></span><span>获赞 <b>15.3 万</b></span></div>
+          </div>
+        </article>
+
+        <article class="se-nav-author">
+          <div class="se-nav-avatar" style="background:linear-gradient(135deg,#4aa3d8,#28658f)">像</div>
+          <div class="se-nav-author-body">
+            <div class="se-nav-author-name">像素校准师 <span class="se-nav-tag">技术测评</span></div>
+            <div class="se-nav-author-field">擅长：深度测评 / 科技前沿</div>
+            <p class="se-nav-author-bio">影像工程师，习惯用示波器与逐帧对比说话。测评不接软广，所有测试设备自购，结论以曲线与截图呈现，为观众提供可验证的观看参数建议。</p>
+            <div class="se-nav-author-nums"><span>作品 <b>31</b></span><span>粉丝 <b>12.4 万</b></span><span>获赞 <b>9.6 万</b></span></div>
+          </div>
+        </article>
+
+        <article class="se-nav-author">
+          <div class="se-nav-avatar" style="background:linear-gradient(135deg,#c9a24f,#96712a)">陶</div>
+          <div class="se-nav-author-body">
+            <div class="se-nav-author-name">陶土与光 <span class="se-nav-tag se-nav-tag-violet">生活方式</span></div>
+            <div class="se-nav-author-field">擅长：手作 DIY / 治愈影像</div>
+            <p class="se-nav-author-bio">陶艺工作室主理人，作品多为日常器皿。视频里保留了大量失败镜头，认为窑变的偶然性本身就是手作的一部分，也愿意把翻车过程完整分享给新手。</p>
+            <div class="se-nav-author-nums"><span>作品 <b>27</b></span><span>粉丝 <b>9.7 万</b></span><span>获赞 <b>7.2 万</b></span></div>
+          </div>
+        </article>
+
+        <article class="se-nav-author">
+          <div class="se-nav-avatar" style="background:linear-gradient(135deg,#6c86c9,#3b4f88)">夜</div>
+          <div class="se-nav-author-body">
+            <div class="se-nav-author-name">夜岸声场 <span class="se-nav-tag se-nav-tag-coral">音乐现场</span></div>
+            <div class="se-nav-author-field">擅长：音乐现场 / 人物访谈</div>
+            <p class="se-nav-author-bio">独立现场记录者，常年混迹小型演出与河岸排练。拍摄坚持不打断演出，也不追加采访话术，以多机位与环境声还原现场原本的粗糙与热烈。</p>
+            <div class="se-nav-author-nums"><span>作品 <b>22</b></span><span>粉丝 <b>8.1 万</b></span><span>获赞 <b>6.4 万</b></span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 口碑评价 -->
+  <section class="se-nav-section se-nav-section-alt" id="se-nav-reviews">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Voices / 用户口碑</span>
+          <h2 class="se-nav-h2">观众怎么评价<em>秘密入口导航站点</em></h2>
+          <p class="se-nav-lead">以下评价来自站内真实反馈与匿名调研，覆盖观看体验、内容质量与社区氛围三个维度。</p>
+        </div>
+      </div>
+
+      <div class="se-nav-reviews se-nav-reveal">
+        <article class="se-nav-review">
+          <div class="se-nav-review-top"><span class="se-nav-review-name">林间慢递</span><span class="se-nav-stars">★★★★★</span><time>2026-11-18</time></div>
+          <p>第一次用是被朋友安利的，结果一口气看了三小时。最打动我的是每条片源下面都有清楚的来源标注，不用猜这是不是搬运的，省了很多心理成本。</p>
+        </article>
+        <article class="se-nav-review se-nav-review-quote">
+          <div class="se-nav-review-top"><span class="se-nav-review-name">南窗听雨</span><span class="se-nav-stars">★★★★★</span><time>2026-11-15</time></div>
+          <p>「城市入口计划」真的把我看愣了，那条高架桥下的旧书摊我每天骑车都会经过，从来没停下来过。看完第二天特意绕路去看了一眼，摊主还在。</p>
+        </article>
+        <article class="se-nav-review">
+          <div class="se-nav-review-top"><span class="se-nav-review-name">半页笔记</span><span class="se-nav-stars">★★★★☆</span><time>2026-11-12</time></div>
+          <p>测评类内容做得很扎实，逐帧对比那种细节确实需要耐心。唯一小建议是某些长片的简介可以再短一点，移动端看着略长。</p>
+        </article>
+        <article class="se-nav-review">
+          <div class="se-nav-review-top"><span class="se-nav-review-name">阿菱</span><span class="se-nav-stars">★★★★★</span><time>2026-11-10</time></div>
+          <p>手作那期我反复看了两遍。失败镜头没有被剪掉，这点特别难得。跟着视频做了一只歪歪扭扭的杯子，虽然丑但很快乐，希望多出这类。</p>
+        </article>
+        <article class="se-nav-review se-nav-review-quote">
+          <div class="se-nav-review-top"><span class="se-nav-review-name">老周看片</span><span class="se-nav-stars">★★★★★</span><time>2026-11-07</time></div>
+          <p>用了一年多，最喜欢的其实是收藏清单。我把它当周末片单用，每周固定时间回看，慢慢养成了习惯。这种不打扰的产品思路现在挺少见。</p>
+        </article>
+        <article class="se-nav-review">
+          <div class="se-nav-review-top"><span class="se-nav-review-name">小满君</span><span class="se-nav-stars">★★★★☆</span><time>2026-11-03</time></div>
+          <p>加载速度很稳，高清片源拖动也不卡。希望专题更新能再快一点，第二季等得有点久，不过质量确实值得等。</p>
+        </article>
+        <article class="se-nav-review">
+          <div class="se-nav-review-top"><span class="se-nav-review-name">纸飞机不飞</span><span class="se-nav-stars">★★★★★</span><time>2026-10-29</time></div>
+          <p>作为业余拍片的人，最受益的是创作者公开的流程笔记。选题会被否掉三次这件事让我松了口气，原来大家都一样。</p>
+        </article>
+        <article class="se-nav-review">
+          <div class="se-nav-review-top"><span class="se-nav-review-name">暮色归人</span><span class="se-nav-stars">★★★★★</span><time>2026-10-24</time></div>
+          <p>评论区氛围意外地好，大家会认真讨论拍摄地点和时段，很少有人争论高低。这种克制挺难得的，希望一直保持下去。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- M4 品牌故事 + 时间线 -->
+  <section class="se-nav-section" id="se-nav-stories">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Story / 品牌故事</span>
+          <h2 class="se-nav-h2">从一张手写片单，到<em>秘密入口导航站点</em></h2>
+          <p class="se-nav-lead">品牌故事不是包装，而是一段可以核对的时间线。以下是我们在官方渠道公开的关键节点。</p>
+        </div>
+      </div>
+
+      <div class="se-nav-story se-nav-reveal">
+        <div class="se-nav-story-text">
+          <h3 class="se-nav-h3">起点：一张贴在工作室墙上的片单</h3>
+          <p>
+            2019 年，几个做纪录片后期的年轻人把自己的看片清单写在纸上，贴在工作室墙上。来的人习惯拍照带走，
+            后来有人提议，「不如做成一个页面，谁都能打开」。这个朴素的念头成了品牌的起点，也是「导航」二字最早的来历。
+          </p>
+          <p>
+            2021 年，我们开始正式运营，确立<strong>人工复核</strong>与<strong>原创优先</strong>两条基本原则；
+            2023 年，上线创作者主页与创作笔记功能；2024 年，完成技术标准统一，要求 1080P 起、字幕可追溯；
+            2025 年，开放企业合作片单与授权查询；2026 年，推出专题企划常态化更新机制。
+          </p>
+          <p>
+            这一路上，我们拒绝过不少短期合作，也下架过播放量很高的内容。<strong>品牌</strong>不是一句口号，
+            而是每次选择时那条不太轻松的路。作为持续运营的视频平台，我们更在意五年后是否还能被信任。
+          </p>
+          <div class="se-nav-tonote">
+            <p class="se-nav-note">完整品牌故事与创始人访谈视频可在帮助中心获取，内容与官方发布版本保持一致。</p>
+          </div>
+        </div>
+
+        <div class="se-nav-story-list">
+          <article class="se-nav-story-card">
+            <h3>2019 · 一张手写片单</h3>
+            <p>工作室墙上的纸质清单被整理成第一版页面，只有二十三条内容，靠口耳相传被人知道。</p>
+          </article>
+          <article class="se-nav-story-card">
+            <h3>2021 · 正式运营</h3>
+            <p>确立人工复核机制，首批签约创作者十七位，片源库首次超过一千条，评分体系上线。</p>
+          </article>
+          <article class="se-nav-story-card">
+            <h3>2023 · 创作者主页</h3>
+            <p>开放创作笔记与幕后素材上传，创作者可独立维护档案，粉丝规模突破十万。</p>
+          </article>
+          <article class="se-nav-story-card">
+            <h3>2026 · 专题常态化</h3>
+            <p>专题企划形成固定更新节奏，城市影像与幕后纪录两条主线并行，社区评价体系完成第三次迭代。</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M10 企业动态 -->
+  <section class="se-nav-section se-nav-section-alt" id="se-nav-dyn">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Newsroom / 企业动态</span>
+          <h2 class="se-nav-h2">官方发布与<em>企业动态</em></h2>
+          <p class="se-nav-lead">平台机制、内容规则与合作进展，均在官方渠道同步更新，欢迎监督与反馈。</p>
+        </div>
+      </div>
+
+      <div class="se-nav-dyn se-nav-reveal">
+        <div class="se-nav-dyn-item">
+          <time>2026-11-20</time>
+          <div>
+            <h3>创作者招募第 7 期开放报名</h3>
+            <p>面向城市记录、人物访谈与手作方向开放三十个名额，提供拍摄补贴与专题推荐位，报名截止 12 月 6 日。</p>
+          </div>
+        </div>
+        <div class="se-nav-dyn-item">
+          <time>2026-11-14</time>
+          <div>
+            <h3>内容复核规则更新：新增音频一致性检查</h3>
+            <p>针对近期音轨替换问题，复核流程新增音频一致性比对环节，并公开了抽样比对方法的说明文档。</p>
+          </div>
+        </div>
+        <div class="se-nav-dyn-item">
+          <time>2026-11-06</time>
+          <div>
+            <h3>片源库支持按清晰度与时长复合筛选</h3>
+            <p>搜索与筛选能力升级，支持 1080P、4K 与时长区间的组合筛选，移动端同步生效。</p>
+          </div>
+        </div>
+        <div class="se-nav-dyn-item">
+          <time>2026-10-28</time>
+          <div>
+            <h3>与三家独立影像机构达成内容合作</h3>
+            <p>合作覆盖城市影像、纪录短片与音乐现场三类内容，首批二十条授权片源已入库并标注来源。</p>
+          </div>
+        </div>
+        <div class="se-nav-dyn-item">
+          <time>2026-10-16</time>
+          <div>
+            <h3>社区评价体系第三次迭代上线</h3>
+            <p>评价权重调整为口碑与完播率并重，新增恶意刷量识别与创作者申诉通道，处理周期为七个工作日。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M9 创作灵感 -->
+  <section class="se-nav-section" id="se-nav-inspire">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Ideas / 创作灵感</span>
+          <h2 class="se-nav-h2">给创作者的三条<em>灵感</em>与工具建议</h2>
+          <p class="se-nav-lead">这些提示来自编辑团队与创作者的真实讨论，适合刚起步的拍摄者直接拿去用。</p>
+        </div>
+      </div>
+
+      <div class="se-nav-inspire se-nav-reveal">
+        <article class="se-nav-inspire-card">
+          <span class="se-nav-inspire-tag">脚本灵感</span>
+          <h3>用「一个地点的一整天」做叙事骨架</h3>
+          <p>选一个固定机位，从开门拍到打烊，只保留时间戳与环境音。结构简单但信息量极大，适合第一次做长片的创作者。</p>
+        </article>
+        <article class="se-nav-inspire-card">
+          <span class="se-nav-inspire-tag">标题建议</span>
+          <h3>把结论前置，把细节留白</h3>
+          <p>例如「五个被居民自己改造的角落」比「我去了一个老城区」更有预期。标题给出结构，简介再补充背景。</p>
+        </article>
+        <article class="se-nav-inspire-card">
+          <span class="se-nav-inspire-tag">剪辑思路</span>
+          <h3>先定一个「不能删」的镜头</h3>
+          <p>找到全片最有价值的三秒，以其为轴心反推节奏。其余素材围绕它排列，删减时优先牺牲信息重复的段落。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 合作 + FAQ -->
+  <section class="se-nav-section se-nav-section-alt" id="se-nav-faq">
+    <div class="se-nav-shell">
+      <div class="se-nav-head se-nav-reveal">
+        <div>
+          <span class="se-nav-kicker">Support / 帮助与合作</span>
+          <h2 class="se-nav-h2">常见问题与<em>合作品牌</em></h2>
+          <p class="se-nav-lead">关于片源、投稿、授权与账号的常见疑问，这里给出官方口径的答复；未覆盖的问题可通过客服邮箱反馈。</p>
+        </div>
+      </div>
+
+      <div class="se-nav-partners se-nav-reveal" style="margin-bottom:30px">
+        <div class="se-nav-partner"><b>南岸影像社</b><span>城市纪录合作</span></div>
+        <div class="se-nav-partner"><b>青阶工作室</b><span>手作内容共创</span></div>
+        <div class="se-nav-partner"><b>声场实验室</b><span>现场录音支持</span></div>
+        <div class="se-nav-partner"><b>帧率研究所</b><span>技术测评协作</span></div>
+      </div>
+
+      <div class="se-nav-faq se-nav-reveal">
+        <details open>
+          <summary>秘密入口导航站点的片源是如何筛选的？</summary>
+          <p>所有片源需经过技术复核与内容复核两轮。技术复核检查码率、音轨完整度与字幕准确率；内容复核评估原创程度、信息密度与来源可追溯性。通过后才会获得推荐资格。</p>
+        </details>
+        <details>
+          <summary>我可以投稿自己的作品吗？</summary>
+          <p>可以。点击页面上方「投稿入口」按钮提交基础信息与作品链接，编辑会在五个工作日内回复。建议附上素材来源说明与拍摄笔记，能显著提升通过率。</p>
+        </details>
+        <details>
+          <summary>收藏的内容会一直保留吗？</summary>
+          <p>收藏清单与账号绑定，长期有效。若某条内容因授权到期或复核问题被下架，你的收藏中会标注状态，方便你了解原因。</p>
+        </details>
+        <details>
+          <summary>为什么有些片源只有 1080P？</summary>
+          <p>清晰度取决于原始素材与创作者提供的版本。平台要求 1080P 起，部分早期内容或素材受限的作品不提供 4K，我们会在详情页明确标注规格。</p>
+        </details>
+        <details>
+          <summary>企业的宣传片可以入驻吗？</summary>
+          <p>可以，但需提供完整素材来源与授权说明。企业内容会标注合作属性，与创作者内容分区展示，避免混淆观众判断。</p>
+        </details>
+        <details>
+          <summary>遇到疑似搬运或音轨异常的内容怎么办？</summary>
+          <p>可在片源详情页提交反馈，选择对应类型并补充时间点。复核团队会在六个工作日内完成比对并公示处理结果。</p>
+        </details>
+      </div>
+
+      <div class="se-nav-band se-nav-reveal" style="margin-top:34px">
+        <div>
+          <h2>把你的作品放进下一个专题</h2>
+          <p>无论是城市短片、幕后纪录还是手作影像，只要认真拍过，都值得被看见。投稿通道长期开放，官方发布渠道同步答疑。</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="se-nav-btn se-nav-btn-primary" id="se-nav-submit-btn2" type="button">立即投稿</button>
+          <button class="se-nav-btn se-nav-btn-ghost" id="se-nav-feedback-btn" type="button">意见反馈</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S8 页脚 -->
+  <footer class="se-nav-footer">
+    <div class="se-nav-shell">
+      <div class="se-nav-footer-grid">
+        <div>
+          <div class="se-nav-brand" style="margin-bottom:12px">
+            <span class="se-nav-logo">秘</span>
+            <span class="se-nav-brand-text">
+              <span class="se-nav-brand-name">秘密入口导航站点</span>
+              <span class="se-nav-brand-sub">VIDEO PORTAL</span>
+            </span>
+          </div>
+          <p>秘密入口导航站点官方网站，深耕视频导航垂直领域，以原创、正版、高清为内容底线，为创作者与观众搭建值得信赖的内容生态。持续运营，每日更新。</p>
+        </div>
+        <div>
+          <h3>内容导航</h3>
+          <ul>
+            <li><a href="#se-nav-focus">焦点推荐</a></li>
+            <li><a href="#se-nav-videos">片源库</a></li>
+            <li><a href="#se-nav-topics">专题企划</a></li>
+            <li><a href="#se-nav-authors">创作者矩阵</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>品牌与帮助</h3>
+          <ul>
+            <li><a href="#se-nav-stories">品牌故事</a></li>
+            <li><a href="#se-nav-dyn">企业动态</a></li>
+            <li><a href="#se-nav-faq">常见问题</a></li>
+            <li><a href="#se-nav-reviews">用户口碑</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>联系我们</h3>
+          <ul>
+            <li>合作邮箱：brand@portal.example</li>
+            <li>投稿邮箱：create@portal.example</li>
+            <li>反馈邮箱：support@portal.example</li>
+            <li>工作时间：周一至周五 10:00–19:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="se-nav-footer-bottom">
+        <span>© 2019–2026 秘密入口导航站点 版权所有 · 持续运营中</span>
+        <span>备案号：示例备案 00000000 号 · 官方发布内容以站内公告为准</span>
+        <button class="se-nav-btn se-nav-btn-ghost" id="se-nav-backtop" type="button" style="padding:6px 14px;font-size:12.5px">回到顶部 ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部悬浮 -->
+  <button class="se-nav-backtop" id="se-nav-backtop-float" type="button" aria-label="回到顶部">↑</button>
+
+  <!-- Toast -->
+  <div class="se-nav-toast" id="se-nav-toast" role="status" aria-live="polite"></div>
+
+  <!-- 通用弹窗 -->
+  <div class="se-nav-modal-mask" id="se-nav-modal-mask">
+    <div class="se-nav-modal" role="dialog" aria-modal="true" aria-labelledby="se-nav-modal-title">
+      <h3 id="se-nav-modal-title">标题</h3>
+      <p id="se-nav-modal-desc">描述</p>
+      <div id="se-nav-modal-extra"></div>
+      <div class="se-nav-modal-ops">
+        <button class="se-nav-btn se-nav-btn-ghost" id="se-nav-modal-cancel" type="button">关闭</button>
+        <button class="se-nav-btn se-nav-btn-primary" id="se-nav-modal-confirm" type="button">确认</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('se-nav-toast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* 移动端导航折叠 */
+  var burger = document.getElementById('se-nav-burger');
+  var mobileNav = document.getElementById('se-nav-mobile');
+  if(burger && mobileNav){
+    burger.addEventListener('click', function(){
+      var open = mobileNav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mobileNav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        mobileNav.classList.remove('open');
+        burger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('se-nav-search-input');
+  var searchBtn = document.getElementById('se-nav-search-btn');
+  var flash = document.getElementById('se-nav-search-flash');
+  var flashTimer = null;
+  function flashShow(msg){
+    if(!flash) return;
+    flash.textContent = msg;
+    flash.classList.add('show');
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(function(){ flash.classList.remove('show'); }, 2600);
+  }
+  function doSearch(){
+    if(!searchInput) return;
+    var kw = (searchInput.value || '').trim();
+    if(!kw){
+      flashShow('请输入关键词，例如「城市」「手作」「幕后」');
+      return;
+    }
+    var pool = ['城市入口计划','白噪工作室','陶土与光','像素校准师','早餐图鉴','夜岸声场'];
+    var hits = pool.filter(function(x){ return x.indexOf(kw) > -1; });
+    if(hits.length){
+      flashShow('找到 ' + hits.length + ' 条相关结果：' + hits.join('、'));
+    }else{
+      flashShow('暂未匹配到「' + kw + '」，已为你推荐本周热门片源');
+    }
+  }
+  if(searchBtn) searchBtn.addEventListener('click', doSearch);
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+    });
+  }
+
+  /* 点赞 +1 / -1 */
+  document.querySelectorAll('.se-nav-like').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var n = parseInt(btn.getAttribute('data-count'), 10) || 0;
+      var liked = btn.classList.toggle('active');
+      n = liked ? n + 1 : n - 1;
+      btn.setAttribute('data-count', String(n));
+      btn.textContent = (liked ? '♥ ' : '♥ ') + n.toLocaleString('zh-CN');
+      toast(liked ? '已点赞，感谢支持' : '已取消点赞');
+    });
+  });
+
+  /* 收藏状态切换 */
+  document.querySelectorAll('.se-nav-save').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var saved = btn.classList.toggle('saved');
+      btn.textContent = saved ? '★ 已收藏' : '☆ 收藏';
+      toast(saved ? '已加入你的入口清单' : '已从清单移除');
+    });
+  });
+
+  /* 通用弹窗 */
+  var mask = document.getElementById('se-nav-modal-mask');
+  var mTitle = document.getElementById('se-nav-modal-title');
+  var mDesc = document.getElementById('se-nav-modal-desc');
+  var mExtra = document.getElementById('se-nav-modal-extra');
+  var mCancel = document.getElementById('se-nav-modal-cancel');
+  var mConfirm = document.getElementById('se-nav-modal-confirm');
+  var confirmHandler = null;
+
+  function openModal(title, desc, extraHTML, confirmText, onConfirm){
+    if(!mask) return;
+    mTitle.textContent = title;
+    mDesc.textContent = desc;
+    mExtra.innerHTML = extraHTML || '';
+    mConfirm.textContent = confirmText || '确认';
+    confirmHandler = onConfirm || null;
+    mask.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    if(!mask) return;
+    mask.classList.remove('show');
+    document.body.style.overflow = '';
+    confirmHandler = null;
+  }
+  if(mCancel) mCancel.addEventListener('click', closeModal);
+  if(mask){
+    mask.addEventListener('click', function(e){
+      if(e.target === mask) closeModal();
+    });
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mask && mask.classList.contains('show')) closeModal();
+  });
+  if(mConfirm){
+    mConfirm.addEventListener('click', function(){
+      if(typeof confirmHandler === 'function'){ confirmHandler(); }
+      else { closeModal(); }
+    });
+  }
+
+  /* 分享（复制链接 + 平台提示） */
+  function openShare(){
+    var extra = '<div class="se-nav-share-row">' +
+      '<button type="button" data-share="微信">微信</button>' +
+      '<button type="button" data-share="微博">微博</button>' +
+      '<button type="button" data-share="QQ">QQ</button>' +
+      '</div>';
+    openModal('分享秘密入口导航站点', '复制页面链接，或选择常用平台分享给朋友。', extra, '复制链接', function(){
+      var link = window.location.href;
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){
+          toast('链接已复制到剪贴板');
+          closeModal();
+        }).catch(function(){
+          toast('复制失败，请手动选择地址栏复制');
+          closeModal();
+        });
+      }else{
+        toast('当前环境不支持自动复制，请手动复制地址栏');
+        closeModal();
+      }
+    });
+    var row = document.getElementById('se-nav-modal-extra');
+    if(row){
+      row.addEventListener('click', function(e){
+        var t = e.target;
+        if(t && t.getAttribute && t.getAttribute('data-share')){
+          toast('已生成' + t.getAttribute('data-share') + '分享提示');
+        }
+      });
+    }
+  }
+  var shareTop = document.getElementById('se-nav-share-top');
+  if(shareTop) shareTop.addEventListener('click', openShare);
+
+  /* 投稿弹窗 */
+  function openSubmit(){
+    var extra = '<input type="text" id="se-nav-f-name" placeholder="作品标题" aria-label="作品标题">' +
+      '<input type="text" id="se-nav-f-link" placeholder="作品链接（选填）" aria-label="作品链接">' +
+      '<textarea id="se-nav-f-note" rows="3" placeholder="简单介绍你的拍摄方向与素材来源" aria-label="作品说明"></textarea>';
+    openModal('投稿入口', '提交后编辑将在五个工作日内回复，请填写可联系的信息。', extra, '提交投稿', function(){
+      var nameEl = document.getElementById('se-nav-f-name');
+      var name = nameEl ? nameEl.value.trim() : '';
+      if(!name){
+        toast('请先填写作品标题');
+        return;
+      }
+      toast('投稿已提交：「' + name + '」');
+      closeModal();
+    });
+  }
+  var sub1 = document.getElementById('se-nav-submit-btn');
+  var sub2 = document.getElementById('se-nav-submit-btn2');
+  if(sub1) sub1.addEventListener('click', openSubmit);
+  if(sub2) sub2.addEventListener('click', openSubmit);
+
+  /* 反馈弹窗 */
+  var fb = document.getElementById('se-nav-feedback-btn');
+  if(fb) fb.addEventListener('click', function(){
+    var extra = '<textarea id="se-nav-fb-text" rows="4" placeholder="请描述你遇到的问题或建议" aria-label="反馈内容"></textarea>';
+    openModal('意见反馈', '你的反馈会进入复核队列，涉及具体片源请注明标题。', extra, '提交反馈', function(){
+      var t = document.getElementById('se-nav-fb-text');
+      var v = t ? t.value.trim() : '';
+      if(!v){
+        toast('请先填写反馈内容');
+        return;
+      }
+      toast('反馈已收到，感谢你的建议');
+      closeModal();
+    });
+  });
+
+  /* 回到顶部 */
+  var backFloat = document.getElementById('se-nav-backtop-float');
+  var backFoot = document.getElementById('se-nav-backtop');
+  function goTop(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  if(backFloat) backFloat.addEventListener('click', goTop);
+  if(backFoot) backFoot.addEventListener('click', goTop);
+
+  function onScroll(){
+    if(!backFloat) return;
+    if(window.scrollY > 520){ backFloat.classList.add('show'); }
+    else { backFloat.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* 滚动显现 */
+  var revealEls = document.querySelectorAll('.se-nav-reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }else{
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* 数字滚动 */
+  var counters = document.querySelectorAll('[data-count]');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if(isNaN(target)) return;
+    var start = 0;
+    var dur = 900;
+    var t0 = null;
+    var suffix = el.textContent.replace(/[0-9]/g, '');
+    function step(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var val = Math.floor(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+      el.textContent = val.toLocaleString('zh-CN') + (suffix.indexOf('%') > -1 ? '%' : '+');
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && counters.length){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          animateCount(en.target);
+          cio.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function(el){ cio.observe(el); });
+  }
+})();
+</script>
+</body>
+            </html>
